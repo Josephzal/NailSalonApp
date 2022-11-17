@@ -14,6 +14,7 @@ class nailSalonDatabaseHelper extends SQLiteOpenHelper{
         super(context, DB_NAME, null, DB_VERSION);
     }
 
+//     Ensure db is always up to date
     @Override
     public void onCreate(SQLiteDatabase db){
         updateMyDatabase(db, 0, DB_VERSION);
@@ -26,6 +27,7 @@ class nailSalonDatabaseHelper extends SQLiteOpenHelper{
         updateMyDatabase(db, oldVersion, newVersion);
     }
 
+//     Add appointment to db
     private static void insertAppointment(SQLiteDatabase db, String name,
                                           String phone, String location, String time) {
         ContentValues appValues = new ContentValues();
@@ -36,6 +38,7 @@ class nailSalonDatabaseHelper extends SQLiteOpenHelper{
         db.insert("DRINK", null, appValues);
     }
 
+//     Update the db
     private void updateMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion < 1) {
             db.execSQL("CREATE TABLE APPOINTMENTS (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
