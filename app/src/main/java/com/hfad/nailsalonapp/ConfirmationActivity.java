@@ -11,6 +11,7 @@ public class ConfirmationActivity extends AppCompatActivity {
 
     Button homeBtn;
 
+//     Generate and display appointment confirmation
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
