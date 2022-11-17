@@ -68,6 +68,7 @@ public class LocationsActivity extends AppCompatActivity implements OnMapReadyCa
     private LatLng[] mLikelyPlaceLatLngs;
 
 
+//     Ensure proper layout
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +94,7 @@ public class LocationsActivity extends AppCompatActivity implements OnMapReadyCa
         return super.onCreateOptionsMenu(menu);
     }
 
+//     Ensure location exists
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -108,7 +110,7 @@ public class LocationsActivity extends AppCompatActivity implements OnMapReadyCa
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
+// API Code
     private void getLocationPermission() {
         mLocationPermissionGranted = false;
         if (ContextCompat.checkSelfPermission(this.getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
@@ -118,6 +120,7 @@ public class LocationsActivity extends AppCompatActivity implements OnMapReadyCa
         }
     }
 
+// Generate map markers to be accessed    
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -131,13 +134,12 @@ public class LocationsActivity extends AppCompatActivity implements OnMapReadyCa
         float zoomLevel = 10.0f;
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(altamonte, zoomLevel));
 
-
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
         getLocationPermission();
 
     }
-
+// API Code
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -151,19 +153,14 @@ public class LocationsActivity extends AppCompatActivity implements OnMapReadyCa
         }
     }
 
+//     API Code
     private void getCurrentPlaceLikelihoods() {
         List<Place.Field> placeFields = Arrays.asList(Place.Field.NAME, Place.Field.LAT_LNG);
 
         @SuppressWarnings("MissingPermission") final FindCurrentPlaceRequest request = FindCurrentPlaceRequest.builder(placeFields).build();
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+         
             return;
         }
         Task<FindCurrentPlaceResponse> placeResponse = mPlacesClient.findCurrentPlace(request);
