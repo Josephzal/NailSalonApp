@@ -9,6 +9,8 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
     Button aptBtn;
     Button locationsBtn;
+    
+//     Ensure proper layout and instantiate buttons
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,11 +34,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+//     Create appointment
     public void openAptActivity(){
         Intent intent = new Intent(this, AppointmentActivity.class);
         startActivity(intent);
     }
 
+//     View locations
     public void openLocationsActivity(){
         Intent intent = new Intent(this, LocationsActivity.class);
         startActivity(intent);
