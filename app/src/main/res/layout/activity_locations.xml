@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="349dp"
+            android:layout_marginBottom="20dp"
+            tools:context=".MapsActivity" />
+
+        <TextView
+            android:id="@+id/orlando"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:text="Orlando"
+            android:textAlignment="center"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/orlandoDesc"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:lines="3"
+            android:text="123 Place St.\nOrlando, FL 32781\n(407) 555 - 1285"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/altamonte"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:text="Altamonte Springs"
+            android:textAlignment="center"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/altamonteDesc"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:lines="3"
+            android:text="456 Allington Lane\nAltamonte Spring,s FL 32781\n(321) 555 - 8745"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/sanford"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:text="Sanford"
+            android:textAlignment="center"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/sanfordDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="3"
+            android:text="512 Beechwood Blvd.\nSanford, FL 32781\n(407) 555 - 5461"
+            android:textAlignment="center" />
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
